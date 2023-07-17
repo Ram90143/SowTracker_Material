@@ -1,0 +1,38 @@
+<mat-toolbar >
+  <mat-tab-group   class="admintabs" (selectedTabChange)="onTabChange($event)">
+    <mat-tab label="Account"></mat-tab>
+    <mat-tab label="DellManager"></mat-tab>
+    <mat-tab label="Domain"></mat-tab>
+    <mat-tab label="Location"></mat-tab>
+    <mat-tab label="Registration"></mat-tab>
+    <mat-tab label="Region"></mat-tab>
+    <mat-tab label="Recruiter"></mat-tab>
+    <mat-tab label="Technology"></mat-tab>
+    <mat-tab label="USTPOC"></mat-tab>
+    <mat-tab label="USTTPM"></mat-tab>
+  </mat-tab-group>
+</mat-toolbar>
+
+<div class="table-container" *ngIf="selectedTab === 'Account'">
+  <table mat-table [dataSource]="accounts" class="mat-elevation-z8">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Account Name</th>
+      <td mat-cell *matCellDef="let account">{{ account.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let account">{{ account.email }}</td>
+    </ng-container>
+
+    <!-- Add more columns as needed -->
+
+    <tr mat-header-row *matHeaderRowDef="['name', 'email']"></tr>
+    <tr mat-row *matRowDef="let account; columns: ['name', 'email']"></tr>
+  </table>
+</div>
+
+
+
+
+
